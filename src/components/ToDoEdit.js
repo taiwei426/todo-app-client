@@ -1,7 +1,10 @@
 import React from 'react';
 import {connect} from 'react-redux'
+import {Field, reduxForm} from 'redux-form'
 
 import ToDoForm from './ToDoForm'
+import ToDoCheckmark from './ToDoCheckmark'
+
 import {editToDo, deselectActiveToDo, getToDo} from '../actions'
 
 class ToDoEdit extends React.Component{
@@ -46,11 +49,17 @@ class ToDoEdit extends React.Component{
         }
     }
     render(){
+        const {id, input} = this.props.itemProps
         return (
-            <ToDoForm 
-                formOnChangeSubmit = {this.formOnChangeSubmit} 
-                formOnSubmit = {this.formOnSubmit} 
-                arrowsKeyPress = {this.arrowsKeyPress}/>
+            // onClick={(e) => e.stopPropagation()} 
+            <div>
+                <ToDoCheckmark name = {input}  item = {input} 
+                    itemId = {id}/>
+                <ToDoForm 
+                    formOnChangeSubmit = {this.formOnChangeSubmit} 
+                    formOnSubmit = {this.formOnSubmit} 
+                    arrowsKeyPress = {this.arrowsKeyPress}/>
+            </div>
         )
     }
 }

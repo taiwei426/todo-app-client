@@ -33,7 +33,7 @@ class ToDoForm extends React.Component{
                 onSubmit={this.props.handleSubmit(this.formOnSubmit)} 
                 onKeyDown = {this.onKeyPress}
                 onChange = { () => setTimeout(this.props.handleSubmit(this.formOnChangeSubmit))} 
-                // onSubmit={this.props.handleSubmit(this.formOnSubmit)} 
+                style={{display: `inline-block`}}
                 > 
                     <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
                         <Field name="input" component={this.renderInput} ></Field>

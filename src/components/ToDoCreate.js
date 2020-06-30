@@ -26,11 +26,13 @@ class ToDoCreate extends React.Component{
             
         } else {
             return (
-                <ToDoForm 
-                    formOnSubmit = {this.onFormSubmit} 
-                    formOnChangeSubmit = {this.formOnChangeSubmit} 
-                    arrowsKeyPress = {this.arrowsKeyPress}
-                    />
+                <div style={{display: `block`}}>
+                    <ToDoForm 
+                        formOnSubmit = {this.onFormSubmit} 
+                        formOnChangeSubmit = {this.formOnChangeSubmit} 
+                        arrowsKeyPress = {this.arrowsKeyPress}
+                        />
+                    </div>
             )
         }
         

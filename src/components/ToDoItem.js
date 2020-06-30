@@ -1,35 +1,22 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {Field, reduxForm} from 'redux-form'
 import {deleteToDo, getToDo} from '../actions'
-
+import ToDoCheckmark from './ToDoCheckmark'
 
 class ToDoItem extends React.Component{
-    onCheck = ({itemId, input}) => {
-        if(input.value){
-            this.props.deleteToDo(itemId);
-        }
-    }
     onEditClick = (formProps) => {
         this.props.getToDo(formProps);      
-    }
-    renderCheckMark = (formProps) => {
-        this.onCheck(formProps);
-        return (
-            <input {...formProps.input} type ="checkbox" value="false"></input> 
-        )
     }
     render(){
         const {id, input} = this.props.itemProps
         return(
             <form id = {id}>
                 <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
-                    <Field 
-                    name = {input} 
-                    component = {this.renderCheckMark} 
-                    item = {input} 
+
+                    <ToDoCheckmark name = {input}  item = {input} 
                     itemId = {id}/>
+
                     <span  onClick = {() => this.onEditClick(this.props.itemProps)} >{input}</span> 
                 </div>
             </form>
@@ -43,13 +30,7 @@ const mapStateToProps = (state) => {
     }
 }
 
-ToDoItem =  connect(mapStateToProps, {deleteToDo, getToDo})(ToDoItem);
-
-
-export default reduxForm({
-    form: 'items', 
-    enableReinitialize : true,
-})(ToDoItem)
+export default connect(mapStateToProps, {deleteToDo, getToDo})(ToDoItem);
 
 
 

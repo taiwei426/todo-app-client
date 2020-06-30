@@ -16,7 +16,6 @@ class ToDoList extends React.Component{
         }
         return this.props.todos.map( (el) => {
             if(el.id === this.props.activeToDo.id){
-                // return <div>edit item</div>
                 return <ToDoEdit itemProps={el}  key = {el.id}/>
             } else {
                 return <ToDoItem itemProps={el}  key = {el.id}/>
@@ -34,13 +33,6 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {getToDos})(ToDoList);
 
-
-
-// ToDoList = connect(mapStateToProps, {getToDos})(ToDoList);
-
-// export default reduxForm({
-//     form: 'list'
-// })(ToDoList)
 
 
 
