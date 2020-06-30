@@ -9,6 +9,7 @@ class ToDoForm extends React.Component{
         this.props.initialize(this.props.initialValues);
     }
     renderInput = (formProps) => {
+        console.log(formProps)
         return( 
             <div>
                 <input {...formProps.input} autoComplete="off" autoFocus onKeyDown = {this.onKeyPress}></input>
@@ -27,10 +28,14 @@ class ToDoForm extends React.Component{
     }
     render(){
         return(
-            <form onChange={ () => setTimeout(this.props.handleSubmit(this.formOnChangeSubmit))} onSubmit={this.props.handleSubmit(this.formOnSubmit)} > 
-                <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
-                    <Field name="input" component={this.renderInput} ></Field>
-                </div>
+            <form 
+                onBlur = { () => setTimeout(this.props.handleSubmit(this.formOnChangeSubmit))} 
+                onSubmit={this.props.handleSubmit(this.formOnChangeSubmit)} 
+                // onSubmit={this.props.handleSubmit(this.formOnSubmit)} 
+                > 
+                    <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
+                        <Field name="input" component={this.renderInput} ></Field>
+                    </div>
             </form>
         )
     }
