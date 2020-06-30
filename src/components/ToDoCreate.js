@@ -6,10 +6,15 @@ import ToDoForm from './ToDoForm'
 import {createToDo, getToDo} from '../actions'
 
 class ToDoCreate extends React.Component{
-    formOnChangeSubmit = (formValues, dispatch) => {
-        this.props.createToDo(formValues).then(() =>  this.props.getToDo((this.props.todos[this.props.todos.length - 1])))
+    formOnChangeSubmit = () => {
+        return null
+        // is this the right way to do this?
+    }
+    onFormSubmit = (formValues, dispatch) => {
+        this.props.createToDo(formValues).then( () => dispatch(reset('create-todo')) )
     }
     arrowsKeyPress = (event) => {
+        // up arrow
         if(event.keyCode === 38){
             const nextItemIndex = this.props.todos.length - 1;
             this.props.getToDo(this.props.todos[nextItemIndex])
@@ -21,7 +26,11 @@ class ToDoCreate extends React.Component{
             
         } else {
             return (
-                <ToDoForm formOnChangeSubmit = {this.formOnChangeSubmit} arrowsKeyPress = {this.arrowsKeyPress}/>
+                <ToDoForm 
+                    formOnSubmit = {this.onFormSubmit} 
+                    formOnChangeSubmit = {this.formOnChangeSubmit} 
+                    arrowsKeyPress = {this.arrowsKeyPress}
+                    />
             )
         }
         

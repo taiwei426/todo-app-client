@@ -12,11 +12,12 @@ class ToDoEdit extends React.Component{
     formOnChangeSubmit = (formValues) => {
         this.props.editToDo(this.props.activeToDo.id, formValues)
     }
-    getNextItem = (event) => {
+    getNextItem = (event, formValues) => {
         this.props.todos.forEach( el => {
             if(el.id === this.props.activeToDo.id){
                 var nextItemIndex = -1;
                 if(event === 'enter' || event === 40 || event === 9){
+                    console.log('enter')
                     nextItemIndex = this.props.todos.indexOf(el) + 1;
                 } else if (event === 38){
                     nextItemIndex = this.props.todos.indexOf(el) - 1;
@@ -33,19 +34,23 @@ class ToDoEdit extends React.Component{
     }
     formOnSubmit = () => {
        this.getNextItem('enter');
+       
     }
-    arrowsKeyPress = (event) => {
+    arrowsKeyPress = (event, formValues) => {
         if(event.keyCode === 38){
-            this.getNextItem(38);
+            this.getNextItem(38, formValues);
         }else if(event.keyCode === 40){
-            this.getNextItem(40);
+            this.getNextItem(40, formValues);
         }else if(event.keyCode === 9){
             // this.getNextItem(9);
         }
     }
     render(){
         return (
-            <ToDoForm formOnChangeSubmit = {this.formOnChangeSubmit} formOnSubmit = {this.formOnSubmit} arrowsKeyPress = {this.arrowsKeyPress}/>
+            <ToDoForm 
+                formOnChangeSubmit = {this.formOnChangeSubmit} 
+                formOnSubmit = {this.formOnSubmit} 
+                arrowsKeyPress = {this.arrowsKeyPress}/>
         )
     }
 }

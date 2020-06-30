@@ -12,7 +12,7 @@ class ToDoForm extends React.Component{
         console.log(formProps)
         return( 
             <div>
-                <input {...formProps.input} autoComplete="off" autoFocus onKeyDown = {this.onKeyPress}></input>
+                <input {...formProps.input} autoComplete="off" autoFocus ></input>
                 {formProps.meta.error}
             </div>
         )
@@ -20,17 +20,19 @@ class ToDoForm extends React.Component{
     formOnChangeSubmit = (formValues) => {
         this.props.formOnChangeSubmit(formValues)
     }
-    formOnSubmit = () => {
-        this.props.formOnSubmit()
+    formOnSubmit = (formValues, dispatch) => {
+        this.props.formOnSubmit(formValues, dispatch)
     }
-    onKeyPress = (event) => {
-        this.props.arrowsKeyPress(event);
+    onKeyPress = (event, formValues) => {
+        this.props.arrowsKeyPress(event, formValues);
     }
     render(){
         return(
             <form 
-                onBlur = { () => setTimeout(this.props.handleSubmit(this.formOnChangeSubmit))} 
-                onSubmit={this.props.handleSubmit(this.formOnChangeSubmit)} 
+                onBlur = { () => setTimeout(this.props.handleSubmit(this.formOnSubmit))} 
+                onSubmit={this.props.handleSubmit(this.formOnSubmit)} 
+                onKeyDown = {this.onKeyPress}
+                onChange = { () => setTimeout(this.props.handleSubmit(this.formOnChangeSubmit))} 
                 // onSubmit={this.props.handleSubmit(this.formOnSubmit)} 
                 > 
                     <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
