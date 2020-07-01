@@ -26,7 +26,7 @@ class ToDoForm extends React.Component{
     onKeyPress = (event) => {
         this.props.arrowsKeyPress(event);
     }
-    render(){
+    render(){  
         return(
             <form style={{display: `block`, width: `84%`}}
                 onBlur = { () => setTimeout(this.props.handleSubmit(this.formOnSubmit))} 
@@ -37,7 +37,7 @@ class ToDoForm extends React.Component{
                     <div onClick={(e) => e.stopPropagation()} style={{display: `block`, width: `100%`}}>
                         <Field name="input" component={this.renderInput} ></Field>
                     </div>
-            </form>
+            </form> 
         )
     }
 }
