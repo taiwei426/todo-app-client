@@ -49,6 +49,7 @@ class ToDoEdit extends React.Component{
         }
     }
     render(){
+        console.log('error')
         const {id, input} = this.props.itemProps
         return (
             // onClick={(e) => e.stopPropagation()} 
