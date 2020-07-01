@@ -15,6 +15,10 @@ class App extends React.Component{
                     <ToDoList />
                     <ToDoCreate />
                 </div>
+                <div class="links">
+                    <a class="github" href="https://vivianzhang.com" target="_blank">Portfolio</a>
+                    <a class="github" href="https://github.com/taiwei426/todo-app-client" target="_blank">GitHub</a>
+                </div>
             </div>
         )
     }
