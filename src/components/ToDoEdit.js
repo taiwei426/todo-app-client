@@ -48,10 +48,9 @@ class ToDoEdit extends React.Component{
         }
     }
     render(){
-        console.log('looking for error')
         const {id, input} = this.props.itemProps
         return (
-            <div>
+            <div className = "item active">
                 <ToDoCheckmark name = {input}  item = {input} 
                     itemId = {id}/>
                 <ToDoForm 

@@ -22,11 +22,15 @@ class ToDoCreate extends React.Component{
     }
     render(){
         if (this.props.activeToDo.id ){
-            return <input></input>
+            return (
+                <div className="item">
+                    <input placeholder="+ Add"></input>
+                </div>
+            )
             
         } else {
             return (
-                <div style={{display: `block`}}>
+                <div style={{display: `block`}} className="item active">
                     <ToDoForm 
                         formOnSubmit = {this.onFormSubmit} 
                         formOnChangeSubmit = {this.formOnChangeSubmit} 

@@ -12,12 +12,12 @@ class ToDoItem extends React.Component{
         const {id, input} = this.props.itemProps
         return(
             <form id = {id}>
-                <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
-
+                <div className = "item" onClick={(e) => e.stopPropagation()} >
+                    
                     <ToDoCheckmark name = {input}  item = {input} 
                     itemId = {id}/>
 
-                    <span  onClick = {() => this.onEditClick(this.props.itemProps)} >{input}</span> 
+                    <div className="item-name" onClick = {() => this.onEditClick(this.props.itemProps)} >{input}</div> 
                 </div>
             </form>
         )

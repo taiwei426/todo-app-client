@@ -11,8 +11,8 @@ class ToDoForm extends React.Component{
     renderInput = (formProps) => {
         console.log(formProps)
         return( 
-            <div>
-                <input {...formProps.input} autoComplete="off" autoFocus ></input>
+            <div style={{display: `block`, width: `100%`}}>
+                <input {...formProps.input} autoComplete="off" autoFocus placeholder="+ Add"></input>
                 {formProps.meta.error}
             </div>
         )
@@ -28,14 +28,13 @@ class ToDoForm extends React.Component{
     }
     render(){
         return(
-            <form 
+            <form style={{display: `block`, width: `84%`}}
                 onBlur = { () => setTimeout(this.props.handleSubmit(this.formOnSubmit))} 
                 onSubmit={this.props.handleSubmit(this.formOnSubmit)} 
                 onKeyDown = {this.onKeyPress}
                 onChange = { () => setTimeout(this.props.handleSubmit(this.formOnChangeSubmit))} 
-                style={{display: `inline-block`}}
                 > 
-                    <div onClick={(e) => e.stopPropagation()} style={{display: `inline-block`}}>
+                    <div onClick={(e) => e.stopPropagation()} style={{display: `block`, width: `100%`}}>
                         <Field name="input" component={this.renderInput} ></Field>
                     </div>
             </form>

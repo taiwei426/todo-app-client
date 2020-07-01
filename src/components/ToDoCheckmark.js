@@ -12,17 +12,19 @@ class ToDoCheckmark extends React.Component{
     renderCheckMark = (formProps) => {
         this.onCheck(formProps);
         return (
-            <input {...formProps.input} type ="checkbox" value="false"></input> 
+            <input {...formProps.input} type ="checkbox" value="false" className="checkmark"></input> 
         )
     }
     render(){
         return (
-            
-            <Field 
-                name = {this.props.name} 
-                component = {this.renderCheckMark} 
-                item = {this.props.item} 
-                itemId = {this.props.itemId}/>
+            <div className="checkmark-container">
+                <Field 
+                    name = {this.props.name} 
+                    component = {this.renderCheckMark} 
+                    item = {this.props.item} 
+                    itemId = {this.props.itemId}/>
+                <div className="styled-checkmark"></div>
+            </div>
         )
     }
 }
