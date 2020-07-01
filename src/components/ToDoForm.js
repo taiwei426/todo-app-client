@@ -23,8 +23,8 @@ class ToDoForm extends React.Component{
     formOnSubmit = (formValues, dispatch) => {
         this.props.formOnSubmit(formValues, dispatch)
     }
-    onKeyPress = (event, formValues) => {
-        this.props.arrowsKeyPress(event, formValues);
+    onKeyPress = (event) => {
+        this.props.arrowsKeyPress(event);
     }
     render(){
         return(
