@@ -151,4 +151,11 @@ input:focus {
   cursor: text;
   padding: 1.5rem;
 }
+
+@media (max-width: 840px) {
+  .wrapper {
+    margin: 0 20px;
+    width: calc( 100% - 40px);
+  }
+}
 /*# sourceMappingURL=style.css.map */
