@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap);
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -54,7 +54,101 @@ html {
 }
 
 body {
-  font-family: "Lato", sans-serif;
-  background: green;
+  background: #f8f9fd;
+  font-family: "Raleway", sans-serif;
+}
+
+.wrapper {
+  width: 800px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+  padding: 2rem 0 1rem;
+  font-weight: 600;
+  color: #4d5866;
+}
+
+.item {
+  background: white;
+  border-radius: 1rem;
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.8rem;
+  color: #2b2f3e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.item:hover {
+  -webkit-box-shadow: 0 0 0 2px #e0e7ef;
+          box-shadow: 0 0 0 2px #e0e7ef;
+}
+
+.item.active {
+  -webkit-box-shadow: 0 0 0 2px cornflowerblue;
+          box-shadow: 0 0 0 2px cornflowerblue;
+}
+
+input {
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  border: none;
+  font-weight: 500;
+  line-height: 1.8rem;
+  color: #2b2f3e;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+}
+
+input:focus {
+  outline: none !important;
+}
+
+.checkmark-container {
+  position: relative;
+  padding: 1.5rem 0 1.5rem 1.5rem;
+}
+
+.checkmark {
+  cursor: pointer;
+  width: 1.2rem;
+  height: 1.2rem;
+  opacity: 0;
+}
+
+.checkmark:checked ~ .styled-checkmark {
+  background-color: cornflowerblue;
+  -webkit-box-shadow: 0 0 0 1px cornflowerblue;
+          box-shadow: 0 0 0 1px cornflowerblue;
+}
+
+.checkmark:hover ~ .styled-checkmark {
+  -webkit-box-shadow: 0 0 0 2px cornflowerblue;
+          box-shadow: 0 0 0 2px cornflowerblue;
+}
+
+.styled-checkmark {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 0 2px #e0e7ef;
+          box-shadow: 0 0 0 2px #e0e7ef;
+  top: 1.8rem;
+  pointer-events: none;
+  left: 1.8rem;
+}
+
+.item-name {
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  cursor: text;
+  padding: 1.5rem;
 }
 /*# sourceMappingURL=style.css.map */

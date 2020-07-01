@@ -42,8 +42,13 @@ table
 	border-collapse: collapse
 	border-spacing: 0
 
-@import url(https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap)
-$lato: 'Lato', sans-serif
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap');
+$raleway: 'Raleway', sans-serif
+
+$cloud: #f8f9fd
+$slate1: #e0e7ef
+$slate-med: #4d5866
+$slate-dark: #2b2f3e
 
 
 html
@@ -51,6 +56,79 @@ html
     
 
 body
-    font-family: $lato
-    background: green
+	background: $cloud
+	font-family: $raleway
+	
+.wrapper
+	width: 800px
+	margin: 0 auto
+
+h1
+	font-size: 2rem
+	padding: 2rem 0 1rem
+	font-weight: 600
+	color: $slate-med
+
+.items-container
+
+.item
+	// padding: 1rem
+	background: white
+	border-radius: 1rem
+	margin: 1rem 0
+	font-size: 1.2rem
+	font-weight: 500
+	line-height: 1.8rem
+	color: $slate-dark
+	display: flex
+	overflow: hidden
+	&:hover
+		box-shadow: 0 0 0 2px $slate1
+	&.active
+		box-shadow: 0 0 0 2px cornflowerblue
+
+input
+	padding: 1.5rem
+	font-size: 1.2rem
+	border: none
+	font-weight: 500
+	line-height: 1.8rem
+	color: $slate-dark
+	font-family: $raleway
+	width: 100%
+	&:focus
+		outline: none !important
+
+.checkmark-container
+	position: relative
+	padding: 1.5rem 0 1.5rem 1.5rem
+
+.checkmark
+	cursor: pointer
+	width: 1.2rem
+	height: 1.2rem
+	opacity: 0
+	&:checked ~ .styled-checkmark
+		background-color: cornflowerblue
+		box-shadow: 0 0 0 1px cornflowerblue
+	&:hover ~ .styled-checkmark
+		box-shadow: 0 0 0 2px cornflowerblue
+
+.styled-checkmark
+	position: absolute
+	width: 1.2rem
+	height: 1.2rem
+	border-radius: 50%
+	box-shadow: 0 0 0 2px $slate1
+	top: 1.8rem
+	pointer-events: none
+	left: 1.8rem
+	
+		
+	
+.item-name
+	flex-grow: 2
+	cursor: text
+	padding: 1.5rem
+	
 
